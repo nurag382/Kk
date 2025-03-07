@@ -111,3 +111,13 @@ bot.on("text", async (ctx) => {
 // Start the bot
 bot.launch();
 console.log("🤖 Mobile Info Board Bot is Running...");
+
+// Set up Express server to listen on port 3000
+const express = require('express');
+const app = express();
+
+app.use(bot.webhookCallback('/secret-path'));
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
